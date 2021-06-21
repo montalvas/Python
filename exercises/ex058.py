@@ -9,13 +9,16 @@ from random import randint
 print('O computador pensou em um número entre 0 e 10... tente adivinhar!')
 randnum = randint(0, 10)
 attempts = 0
+cond = True
 
-while True:
+while cond:
     guess = int(input('Palpite: '))
+    attempts += 1
     if guess == randnum:
-        attempts += 1
-        break
+        cond = False
+    elif guess > randnum:
+        print('Menos... tente novamente.')
     else:
-        attempts += 1
+        print('Mais... tente novamente.')
 print('Você acertou! O número foi: \033[34m{}\033[m'.format(guess))
 print('O número de tentativas foi: \033[31m{}\033[m'.format(attempts))

@@ -6,11 +6,11 @@ print('{:=^30}\n'.format(''))
 
 pa = int(input('Digite o primeiro termo da PA: '))
 r = int(input('Digite a razão da PA: '))
-c = 1
+c = n = 1
 lim = 11
-cond = True
+amount = 10
 
-while cond:
+while n != 0:
     print('\nPA: ', end='')
     while c < lim:
         if c != (lim - 1):
@@ -22,6 +22,7 @@ while cond:
     n = int(input('Quer mostrar mais termos?\n[0 - Não] ou [Digite]: '))
     if n == 0:
         print('FIM...')
-        cond = False
     else:
         lim += n
+        amount += n
+print('Foram mostrados {} termos.'.format(amount))
