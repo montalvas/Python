@@ -2,15 +2,10 @@
 
 from random import randint
 
-n1 = randint(1, 10)
-n2 = randint(1, 10)
-n3 = randint(1, 10)
-n4 = randint(1, 10)
-n5 = randint(1, 10)
+conjunto = (randint(1, 10), randint(1, 10), randint(1, 10), randint(1, 10), randint(1, 10))
 
-tupla = tuple((n1, n2, n3, n4, n5))
 print('Os valores sorteados foram: ', end='')
-for num in tupla:
+for num in conjunto:
     print(f'{num}', end=' ')
-print(f'\nO maior valor sorteado foi {sorted(tupla)[4]}')
-print(f'O menor valor sorteado foi {sorted(tupla)[0]}')
+print(f'\nO maior valor sorteado foi {max(conjunto)}')
+print(f'O menor valor sorteado foi {min(conjunto)}')
