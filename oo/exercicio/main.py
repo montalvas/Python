@@ -1,0 +1,20 @@
+from conta import Conta
+from cliente import Cliente
+
+cliente1 = Cliente('Lucas', 'Montalvani', '555.555.555-55')
+cliente2 = Cliente('Adriana', 'Lima', '333.333.333-33')
+cliente3 = Cliente('Miguel', 'Montalvani', '111.111.111-11')
+conta1 = Conta('123-5', cliente1, 1200)
+conta2 = Conta('123-4', cliente2, 0)
+conta3 = Conta('123-9', cliente3, -100)
+conta1.mostrar_abertura_conta()
+conta1.saca(600)
+conta1.deposita(250)
+conta1.transfere_para(150, conta2)
+conta1.extrato()
+conta2.mostrar_abertura_conta()
+conta2.extrato()
+conta3.extrato()
+print('=' * 20)
+print(f'Total de contas cadastradas: {Conta.get_id()}')
+print(f'Total de clientes cadastrados: {Cliente.get_id()}')
