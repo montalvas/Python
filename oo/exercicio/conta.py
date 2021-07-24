@@ -1,5 +1,6 @@
 from historico import Historico
 
+
 class Conta:
     __slots__ = ['_numero', '_titular', '_saldo', '_historico', '_id']
 
@@ -67,3 +68,26 @@ class Conta:
             self.historico.nova_transacao('Transferência: {:.2f} para conta {}'.format(valor, destino.numero))
         else:
             print('Operação não realizada.')
+
+    def atualiza(self, taxa):
+        self._saldo += self._saldo * taxa
+        return self._saldo
+
+    def __str__(self):
+        return "Dados da conta: \nNúmero: {} \nTitular: {} \nSaldo: {}".format(self._numero, self._titular, self._saldo)
+
+
+class ContaCorrente(Conta):
+    def atualiza(self, taxa):
+        self._saldo += self._saldo * taxa * 2
+        return self._saldo
+
+    def deposita(self, valor):
+        self.saldo += valor - 0.10
+        self.historico.transacoes.append(f'depósito de {valor}')
+
+
+class ContaPoupanca(Conta):
+    def atualiza(self, taxa):
+        self._saldo += self._saldo * taxa * 3
+        return self._saldo
