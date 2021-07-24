@@ -14,7 +14,7 @@ print(cc.saldo)
 print(cp.saldo)
 print('=' * 20)
 
-print(c)
+print(cc)
 print('=' * 20)
 
 att = AtualizadorDeContas(0.01)
@@ -23,3 +23,5 @@ att.iniciar(c)
 att.iniciar(cc)
 att.iniciar(cp)
 print(f'Saldo total: {att.saldo_total}')
+print('=' * 20)
+

@@ -20,6 +20,11 @@ class AtualizadorDeContas:
         self._saldo_total = saldo_total
 
     def iniciar(self, conta):
-        print(f'Saldo da Conta: {conta.saldo}')
-        self._saldo_total += conta.atualiza(self._selic)
-        print(f'Saldo Final: {self._saldo_total}')
+        if hasattr(conta, 'atualiza'):
+            print(f'Conta: {conta.numero}')
+            print(f'Saldo da Conta: {conta.saldo}')
+            self._saldo_total += conta.atualiza(self._selic)
+            print(f'Saldo Final: {conta.saldo}')
+            print('-' * 20)
+        else:
+            print('Conta inválida.')
