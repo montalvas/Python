@@ -74,12 +74,13 @@ class Conta(abc.ABC):
         self.historico.nova_transacao('Saque: {:.2f}'.format(valor))
 
     def transfere_para(self, valor, destino):
-        if self.saldo >= valor:
-            self.saldo -= valor
-            destino.deposita(valor)
-            self.historico.nova_transacao('Transferência: {:.2f} para conta {}'.format(valor, destino.numero))
-        else:
-            print('Operação não realizada.')
+        if valor < 0:
+            raise ValueError   
+        if valor > self.saldo:
+            raise SaldoInsuficienteError
+        self.saldo -= valor
+        destino.deposita(valor)
+        self.historico.nova_transacao('Transferência: {:.2f} para conta {}'.format(valor, destino.numero))
 
     def __str__(self):
         return "Dados da conta: \nTipo: {} \nNúmero: {} \nTitular: {} \nSaldo: {} \n\n".format(self._tipo, self._numero,
@@ -114,8 +115,36 @@ class ContaPoupanca(Conta):
     def atualiza(self, taxa):
         self._saldo += self._saldo * taxa * 3
         return self._saldo
+    
+    def deposita(self, valor):
+        if valor < 0:
+            raise ValueError("Você tentou depositar um valor negativo")       
+        self.saldo += (valor)
+        self.historico.transacoes.append(f'depósito de {valor}')
+    
+    def saca(self, valor):
+        if valor < 0:
+            raise ValueError("Você tentou sacar um valor negativo")
+        if valor > self.saldo:
+            raise SaldoInsuficienteError("Saldo insuficiente")
+        self.saldo -= (valor)
+        self.historico.nova_transacao('Saque: {:.2f}'.format(valor))
 
 
 class ContaInvestimento(Conta):
     def atualiza(self, taxa):
         self.saldo += self.saldo * taxa * 5
+    
+    def deposita(self, valor):
+        if valor < 0:
+            raise ValueError("Você tentou depositar um valor negativo")       
+        self.saldo += (valor)
+        self.historico.transacoes.append(f'depósito de {valor}')
+    
+    def saca(self, valor):
+        if valor < 0:
+            raise ValueError("Você tentou sacar um valor negativo")
+        if valor > self.saldo:
+            raise SaldoInsuficienteError("Saldo insuficiente")
+        self.saldo -= (valor)
+        self.historico.nova_transacao('Saque: {:.2f}'.format(valor))
