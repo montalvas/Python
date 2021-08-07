@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="564ee031-a0ff-4735-9cb4-f762e90c519b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/oo/exercicio5/caixa.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oo/exercicio5/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/oo/exercicio5/main.py" afterDir="false" />
-    </list>
+    <list default="true" id="564ee031-a0ff-4735-9cb4-f762e90c519b" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -83,5 +79,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
