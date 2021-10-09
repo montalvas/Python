@@ -13,6 +13,7 @@ class Person():
         stop_eating: The person will stop eating
         talk: The person will talk
         stop_talking: The person will stop talking
+        get_year_birth: Calculates the year of birth
     """
     
     current_year = datetime.today().year
@@ -76,5 +77,10 @@ class Person():
         self.talking = False
     
     def get_year_birth(self):
+        """Calculates the year of birth
+
+        Returns:
+            int: Year of birth
+        """
         birth = self.current_year - self.age
         return birth
