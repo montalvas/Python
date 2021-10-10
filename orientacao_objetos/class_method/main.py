@@ -9,4 +9,5 @@ acc2.get_info_account()
 acc3 = Account('221-5', 'Miguel', 500)
 acc3.get_info_account()
 
+# Metodo acessivel pela classe
 print(F"\nTotal of registered accounts: {Account.get_total_accounts()}")
